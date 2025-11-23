@@ -1,0 +1,101 @@
+:root{
+  --bg: #f2f4f8;
+  --panel: #ffffff;
+  --accent: #2b8cff;
+  --dark: #1b1f23;
+  --muted: #7b8694;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: Inter, system-ui, Arial; background:var(--bg); display:flex; align-items:center; justify-content:center; }
+
+.calculator {
+  width: 340px;
+  background: var(--panel);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(30,40,50,0.09);
+  padding: 18px;
+}
+
+/* Display */
+.display {
+  height: 78px;
+  background: linear-gradient(180deg,#f7fbff,#ffffff);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark);
+  overflow:hidden;
+  word-break:break-all;
+}
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  height: 56px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  background: transparent;
+  transition: transform .08s ease, box-shadow .08s;
+  box-shadow: 0 3px 8px rgba(30,40,50,0.04);
+}
+
+/* number buttons */
+.btn.num {
+  background: linear-gradient(180deg,#ffffff,#f7f9fc);
+  color: var(--dark);
+}
+
+/* zero is double width */
+.btn.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 24px;
+}
+
+/* operator buttons */
+.btn.operator {
+  background: linear-gradient(180deg,#f0f6ff,#e7f0ff);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* function buttons like clear/back/percent */
+.btn.function {
+  background: linear-gradient(180deg,#fff7f6,#fff1f0);
+  color: #d35454;
+  font-weight: 700;
+}
+
+/* equals */
+.btn.equals {
+  background: var(--accent);
+  color: white;
+  grid-column: span 1;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(43,140,255,0.24);
+}
+
+/* small interaction */
+.btn:active { transform: translateY(2px); }
+.btn:focus { outline: 2px solid rgba(43,140,255,0.14); outline-offset: 2px; }
+
+/* responsive */
+@media (max-width: 380px) {
+  .calculator { width: 92vw; }
+  .display { font-size: 1.6rem; height: 64px; }
+  .btn { height: 50px; font-size: 1rem; }
+}
